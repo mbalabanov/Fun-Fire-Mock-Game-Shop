@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- ────────────────────────────────────────────────────────────────────┐
+	│     _____                                _______                       │
+	│    |  __ \                              |__   __|                      │
+	│    | |  | |_ __ __ _  __ _  ___  _ __      | | ___  __ _ _ __ ___      │
+	│    | |  | | '__/ _` |/ _` |/ _ \| '_ \     | |/ _ \/ _` | '_ ` _ \     │
+	│    | |__| | | | (_| | (_| | (_) | | | |    | |  __/ (_| | | | | | |    │
+	│    |_____/|_|  \__,_|\__, |\___/|_| |_|    |_|\___|\__,_|_| |_| |_|    │
+	│                       __/ |                                            │
+	│                      |___/                                             │
+	└───────────────────────────────────────────────────────────────────── -->
+<head>
+	<meta charset="UTF-8">
+	<title>Fun Fire | Reset Password</title>
+	<link rel='icon' href='img/favicon.ico' type='image/x-icon'/>
+	<link rel="stylesheet" type="text/css" href="css/resetPass.css">
+</head>
+<body>
+	<div id="loginContainer">
+		<center>
+		<div id="divForm">
+			
+			<form>	
+			<div class="divLogo">
+				<img class="Logo" src="img/logo-login.png" alt="Fun Fire">
+			</div>			
+				<div><p class="columnLeft">Email</p><input id="emailtxt" class="squareInput columnRight" type="text" name="UserName" id="UserName" placeholder="Enter your Email"></div>
+				<div>
+					<div class="columnLeft"></div>
+					<input class="columnRight" onclick="resetPassword()" id="resetButton" type="Reset"></input>
+				</div>
+				
+				<div id="resetPassMessage"></div>
+			</form>		
+				
+		</div>
+		</center>
+	</div>
+	<script>
+		function resetPassword() {
+			document.getElementById('emailtxt').innerHTML =``
+			document.getElementById('resetPassMessage').innerHTML =`	
+				<p align="left">Reset link sent to your email</p>
+				<p align="left"><a href="login.html">Back to login</a></p>`
+		}
+	</script>
+</body>
+</html>

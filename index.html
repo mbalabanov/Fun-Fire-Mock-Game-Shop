@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<!-- ────────────────────────────────────────────────────────────────────┐
+	│     _____                                _______                       │
+	│    |  __ \                              |__   __|                      │
+	│    | |  | |_ __ __ _  __ _  ___  _ __      | | ___  __ _ _ __ ___      │
+	│    | |  | | '__/ _` |/ _` |/ _ \| '_ \     | |/ _ \/ _` | '_ ` _ \     │
+	│    | |__| | | | (_| | (_| | (_) | | | |    | |  __/ (_| | | | | | |    │
+	│    |_____/|_|  \__,_|\__, |\___/|_| |_|    |_|\___|\__,_|_| |_| |_|    │
+	│                       __/ |                                            │
+	│                      |___/                                             │
+	└───────────────────────────────────────────────────────────────────── -->
+
+<head>
+	<meta charset="UTF-8">
+	<title>Fun Fire | Home</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/home.css">
+	<link rel="stylesheet" type="text/css" href="css/slider.css">
+	<link rel="stylesheet" type="text/css" href="css/productlist.css">
+	<link rel="stylesheet" type="text/css" href="css/responsive.css">
+	<meta name="Viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Happy+Monkey|News+Cycle&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+	<link rel='icon' href='img/favicon.ico' type='image/x-icon'/>	
+
+	<!-- This file contains the JSON data with all the products. It is needed to populate the product boxes on this page. -->
+	<script src="json/products.js"></script>
+
+	<!-- This file contains the JSON data with the orders that are displayed when a users clicks on the shopping bag on the top right -->
+	<script src="json/orders.js"></script>
+</head>
+
+<body id="body">
+
+	<!-- The megaContainerOne is a bit like the carpet in "The Big Lebowski", it pulls the whole room together, and the Dude loves it. -->
+	<div id="megaContainerOne">
+		<header>
+			<div id="Header">
+				<div id="divLogoLeft">
+					<a href="index.html"><img class="LogoLeft" src="img/logotext.png" alt="Code Factory Vienna"></a>
+				</div>
+
+				<!-- The icons in the menu initiate the JS functions in home.js.
+					goToMyAccount: If the user is not logged in they are forwarded to the login page.
+					showQuestionPopup: Asks the user if they want to sign in or sign up.
+					shopping: Displays the contents of the shopping cart and provides links to the checkout page -->
+				<div id="divLogoRight">
+					<img class="LogoRight" onclick="goToMyAcount()" src="img/myaccount.png" alt="myAcount">
+					<img class="LogoRight" onclick="showQuestionPopup()" src="img/signin.png" alt="login">
+					<img class="LogoRight" onclick="shopping()" src="img/basket.png" alt="basket">
+				</div>
+			</div>
+			<nav class="Menu">
+				<ul class="main">
+					<li><a href="index.html" title="Home">Home</a></li>
+					<li><a href="project.html" title="Project">Project</a></li>
+					<li><a href="team_members.html" title="Team">Team</a></li>
+					<li><a href="news.html" title="News">News & Community</a></li>
+				</ul>
+				<!-- This span is used to display the user's name once they have signed in, it works on the index page. On all other pages it is a placeholder.-->
+				<span id="usernotification" UserID=""></span>
+			</nav>
+		</header>
+
+		<!-- This is the tiny overlay menu that pops up on the top right corner when a user clicks onf the shopping bag.
+			It is populated dynamically from the JSON data in order.js-->
+		<div id="shoppingOverlay"></div>
+
+		<!-- This is the tiny menu that pops up on the top right when a user clicks on the login icon.
+			They are presented with the question whether they want to sign up or sign in, and then forwarded accordingly. -->
+		<div id="questionForm"></div>
+
+		<!-- This is the semi-transparent overlay that shows the product information when a user clicks on a product -->
+		<div id="productOverlay"></div>
+
+		<div id="container">
+			<!-- The main content area starts with a slider featuring the promoted products and services.
+				The Slider code is from W3 Schools. -->
+			<div id="adArea">
+				<div class="slideshow-container">
+
+				  <div class="mySlides fade">
+					<img src="img/ads/ad1.jpg" style="width:100%">
+				  </div>
+
+				  <div class="mySlides fade">
+					<img src="img/ads/ad2.jpg" style="width:100%">
+				  </div>
+
+				  <div class="mySlides fade">
+					<img src="img/ads/ad3.jpg" style="width:100%">
+				  </div>
+
+				  <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+				  <a class="next" onclick="plusSlides(1)">&#10095;</a>
+				</div>
+				<br>
+				<div style="text-align:center">
+				  <span class="dot" onclick="currentSlide(1)"></span> 
+				  <span class="dot" onclick="currentSlide(2)"></span> 
+				  <span class="dot" onclick="currentSlide(3)"></span> 
+				</div>
+			</div>
+
+			<div id="infoArea">
+				<h2>Fun Games for Fun People</h2>
+			</div>
+
+			<!-- This Div is populated dynamically from the JSON data in products.js -->
+			<div id="productArea"></div>
+		</div>
+
+		<footer>
+			<nav class="Menu">
+				<ul class="main">
+					<li><a href="index.html" title="Home">Home</a></li>
+					<li><a href="project.html" title="Project">Project</a></li>
+					<li><a href="team_members.html" title="Team">Team</a></li>
+					<li><a href="news.html" title="News">News & Community</a></li>
+				</ul>
+			</nav>
+			<div id="Footer">						
+				<div id="divFooterTitle">
+					<p><a href="terms_conditions.html" title="Terms">Terms & Conditions</a></p>
+					<p><a href="privacy_policy.html" title="Privacy">Privacy Policy</a></p>
+					<p><a href="imprint.html" title="Imprint">Imprint</a></p>
+					<p>Images by <a href="https://unsplash.com" title="credits" target="_blank">Unsplash</a> and <a href="https://stock.adobe.com" title="credits" target="_blank">Adobe Stock</a></p>
+				</div>				
+			</div>
+		</footer>
+	</div>
+
+	<!-- This is the JS file for the slider adopted from the W3 Schools website -->
+	<script src="js/slider.js" type="text/javascript" charset="utf-8"></script>
+
+	<!-- This is the JS file for populating the products in the productArea Div -->
+	<script type="text/javascript"  src="js/productfunctions.js"></script>
+
+	<!-- This is the JS file for the login pop-up on the top right -->
+	<script type="text/javascript"  src="js/home.js"></script>
+
+	<!-- This is the JS file for the shopping bag pop-up on the top right -->
+	<script type="text/javascript"  src="js/shopping-bag-menu.js"></script>
+</body>
+</html>

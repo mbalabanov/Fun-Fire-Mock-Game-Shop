@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- ────────────────────────────────────────────────────────────────────┐
+	│     _____                                _______                       │
+	│    |  __ \                              |__   __|                      │
+	│    | |  | |_ __ __ _  __ _  ___  _ __      | | ___  __ _ _ __ ___      │
+	│    | |  | | '__/ _` |/ _` |/ _ \| '_ \     | |/ _ \/ _` | '_ ` _ \     │
+	│    | |__| | | | (_| | (_| | (_) | | | |    | |  __/ (_| | | | | | |    │
+	│    |_____/|_|  \__,_|\__, |\___/|_| |_|    |_|\___|\__,_|_| |_| |_|    │
+	│                       __/ |                                            │
+	│                      |___/                                             │
+	└───────────────────────────────────────────────────────────────────── -->
+
+	<!-- Important Note:
+		This page requires a URL parameter ?productID=1 (or any number up to 9).
+		Based on the URL parameter the JS will know which product to pull from the JSON data and show on the page. -->
+<head>
+	<meta charset="UTF-8">
+	<title>Fun Fire | Product Details</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/home.css">
+	<link rel="stylesheet" type="text/css" href="css/productlist.css">
+	<link rel="stylesheet" type="text/css" href="css/productdetails.css">
+	<link rel="stylesheet" type="text/css" href="css/responsive.css">
+	<meta name="Viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Happy+Monkey|News+Cycle&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+	<link rel='icon' href='img/favicon.ico' type='image/x-icon'/>	
+
+	<!-- This file contains the JSON data with all the products. It is used to populate parts of this page.
+		Please note that if you do not add ?productID=1 (or any number to 9) as a URL parameter you will not be presented with a product. -->
+	<script src="json/products.js"></script>
+
+	<!-- This file contains the JSON data with the orders that are displayed when a users clicks on the shopping bag on the top right -->
+	<script src="json/orders.js"></script>
+
+	<!-- This file contains the JSON data with the recommendations -->
+	<script src="json/recommendations.js"></script>
+
+	<!-- This file contains the reviews for each product. The fake data used for this example has the same reviews for all products.-->
+	<script src="json/reviews.js"></script>
+</head>
+<body id="body">
+
+	<!-- The megaContainerOne is a bit like the carpet in "The Big Lebowski", it pulls the whole room together, and the Dude loves it. -->
+	<div id="megaContainerOne">
+		<header>
+			<div id="Header">
+				<div id="divLogoLeft">
+					<a href="index.html"><img class="LogoLeft" src="img/logotext.png" alt="Code Factory Vienna"></a>
+				</div>
+
+				<!-- The icons in the menu initiate the JS functions in home.js.
+					goToMyAccount: If the user is not logged in they are forwarded to the login page.
+					showQuestionPopup: Asks the user if they want to sign in or sign up.
+					shopping: Displays the contents of the shopping cart and provides links to the checkout page -->
+				<div id="divLogoRight">
+					<img class="LogoRight" onclick="goToMyAcount()" src="img/myaccount.png" alt="myAcount">
+					<img class="LogoRight" onclick="showQuestionPopup()" src="img/signin.png" alt="login">
+					<img class="LogoRight" onclick="shopping()" src="img/basket.png" alt="basket">
+				</div>
+			</div>
+			<nav class="Menu">
+				<ul class="main">
+					<li><a href="index.html" title="Home">Home</a></li>
+					<li><a href="project.html" title="Project">Project</a></li>
+					<li><a href="team_members.html" title="Team">Team</a></li>
+					<li><a href="news.html" title="News">News & Community</a></li>
+				</ul>
+				<!-- This span is used to display the user's name once they have signed in, it works on the index page. On all other pages it is a placeholder.-->
+				<span id="usernotification" UserID=""></span>
+			</nav>
+		</header>
+
+		<!-- This is the tiny overlay menu that pops up on the top right corner when a user clicks onf the shopping bag.
+			It is populated dynamically from the JSON data in order.js-->
+		<div id="shoppingOverlay"></div>
+
+		<!-- This is the tiny menu that pops up on the top right when a user clicks on the login icon.
+			They are presented with the question whether they want to sign up or sign in, and then forwarded accordingly. -->
+		<div id="questionForm"></div>
+
+		<div id="container">
+
+			<!-- These are the three divs with the product details, the recommendations and the reviews.
+				They are populated from the respective JSON data in the files products.js, recommendations.js and reviews.js.
+				The JS file with the functions is productdetails.js. -->
+			<div class="row" id="productDetailsContainer">You have loaded the page without providing a product ID as a perameter in the URL. Please add e.g. ?productID=1 to the end of the URL.</div>
+
+			<h2>Recommendations</h2>
+			<!-- Div to be populated with recommendation data from JS file and JSON data. -->
+			<div class="recommendations" id="recommendations">You have loaded the page without providing a product ID as a perameter in the URL. Please add e.g. ?productID=1 to the end of the URL.</div>
+
+			<h2>Reviews</h2>
+			<!-- Div to be populated with reviews from JS file and JSON data. -->
+			<div id="reviewArea">You have loaded the page without providing a product ID as a perameter in the URL. Please add e.g. ?productID=1 to the end of the URL.</div>
+		</div>
+
+		<footer>
+			<nav class="Menu">
+				<ul class="main">
+					<li><a href="index.html" title="Home">Home</a></li>
+					<li><a href="project.html" title="Project">Project</a></li>
+					<li><a href="team_members.html" title="Team">Team</a></li>
+					<li><a href="news.html" title="News">News & Community</a></li>
+				</ul>
+			</nav>
+			<div id="Footer">						
+				<div id="divFooterTitle">
+					<p><a href="terms_conditions.html" title="Terms">Terms & Conditions</a></p>
+					<p><a href="privacy_policy.html" title="Privacy">Privacy Policy</a></p>
+					<p><a href="imprint.html" title="Imprint">Imprint</a></p>
+					<p>Images by <a href="https://unsplash.com" title="credits" target="_blank">Unsplash</a> and <a href="https://stock.adobe.com" title="credits" target="_blank">Adobe Stock</a></p>
+				</div>				
+			</div>
+		</footer>
+
+	</div>
+
+	<!-- This JS file populates the product details, the reviews and the recommendations in the divs above.
+		It uses the JSON data in the files products.js, recommendations.js and reviews.js. -->
+	<script src="js/productdetails.js"></script>
+
+	<!-- This is the JS file for the login pop-up on the top right -->
+	<script type="text/javascript"  src="js/home.js"></script>
+
+	<!-- This is the JS file for the shopping bag pop-up on the top right -->
+	<script type="text/javascript"  src="js/shopping-bag-menu.js"></script>
+</body>
+</html>

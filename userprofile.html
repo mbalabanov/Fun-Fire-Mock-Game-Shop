@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<!-- ────────────────────────────────────────────────────────────────────┐
+	│     _____                                _______                       │
+	│    |  __ \                              |__   __|                      │
+	│    | |  | |_ __ __ _  __ _  ___  _ __      | | ___  __ _ _ __ ___      │
+	│    | |  | | '__/ _` |/ _` |/ _ \| '_ \     | |/ _ \/ _` | '_ ` _ \     │
+	│    | |__| | | | (_| | (_| | (_) | | | |    | |  __/ (_| | | | | | |    │
+	│    |_____/|_|  \__,_|\__, |\___/|_| |_|    |_|\___|\__,_|_| |_| |_|    │
+	│                       __/ |                                            │
+	│                      |___/                                             │
+	└───────────────────────────────────────────────────────────────────── -->
+
+	<!-- Important Note:
+		This page requires a URL parameter ?userID=0 (or any number up to 3).
+		Based on the URL parameter the JS will know which user to pull from the JSON data and show on the page. -->
+
+<head>
+	<meta charset="UTF-8">
+	<title>Fun Fire | User Profile</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/home.css">
+	<link rel="stylesheet" type="text/css" href="css/responsive.css">
+	<link rel='icon' href='img/favicon.ico' type='image/x-icon'/>
+	<meta name="Viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Happy+Monkey|News+Cycle&display=swap" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/userprofile.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+	<!-- This file contains the JSON data with the order history to populate the respective div on this page. -->
+	<script src="json/order_history.js" type="text/javascript" charset="utf-8"></script>
+
+	<!-- This file contains the JSON data with the user information to populate the user profile on this page. -->
+	<script src="json/users.js" type="text/javascript" charset="utf-8"></script>
+
+	<!-- This file contains the JSON data with the orders that are displayed when a users clicks on the shopping bag on the top right -->
+	<script src="json/orders.js"></script>
+
+</head>
+<body>
+	<div id="megaContainerOne">
+		<header>
+			<div id="Header">
+				<div id="divLogoLeft">
+					<a href="index.html"><img class="LogoLeft" src="img/logotext.png" alt="Code Factory Vienna"></a>
+				</div>
+
+				<!-- The icons in the menu initiate the JS functions in home.js.
+					goToMyAccount: If the user is not logged in they are forwarded to the login page.
+					showQuestionPopup: Asks the user if they want to sign in or sign up.
+					shopping: Displays the contents of the shopping cart and provides links to the checkout page -->
+				<div id="divLogoRight">
+					<img class="LogoRight" onclick="goToMyAcount()" src="img/myaccount.png" alt="myAcount">
+					<img class="LogoRight" onclick="showQuestionPopup()" src="img/signin.png" alt="login">
+					<img class="LogoRight" onclick="shopping()" src="img/basket.png" alt="basket">
+				</div>
+			</div>
+			<nav class="Menu">
+				<ul class="main">
+					<li><a href="index.html" title="Home">Home</a></li>
+					<li><a href="project.html" title="Project">Project</a></li>
+					<li><a href="team_members.html" title="Team">Team</a></li>
+					<li><a href="news.html" title="News">News & Community</a></li>
+				</ul>
+				<!-- This span is used to display the user's name once they have signed in, it works on the index page. On all other pages it is a placeholder.-->
+				<span id="usernotification" UserID=""></span>
+			</nav>
+		</header>
+
+		<!-- This is the tiny overlay menu that pops up on the top right corner when a user clicks onf the shopping bag.
+			It is populated dynamically from the JSON data in order.js-->
+		<div id="shoppingOverlay"></div>
+
+		<!-- This is the tiny menu that pops up on the top right when a user clicks on the login icon.
+			They are presented with the question whether they want to sign up or sign in, and then forwarded accordingly. -->
+		<div id="questionForm"></div>
+
+		<main>
+			<!-- This div is populated with the user information by the file userprofile.js
+				it uses the JSON data in users.js. There is fallback content, in case there is no ID provided. -->
+			<div class="user">
+				<div username class="userheader">
+				User info
+				</div>
+				<div class="wrapper">
+					<div id="userImage">
+						
+					</div>
+					<div>
+						<h3><span id="name"></span></h3>
+						<div>Password:<span>******</span></div>
+						<div>Email: <span id="userEmail"></span></div>
+					</div>
+				</div>
+			</div>
+		
+			<!-- This div is populated with the order history contained in the JSON data in order_history.js -->
+			<div class="user" id="ordHistory">
+				<div class="userheader">
+					Order History
+				</div>
+
+				<div id="userorderhistory">
+					
+				</div>
+			</div>	
+		</main>
+
+		<footer>
+			<nav class="Menu">
+				<ul class="main">
+					<li><a href="index.html" title="Home">Home</a></li>
+					<li><a href="project.html" title="Project">Project</a></li>
+					<li><a href="team_members.html" title="Team">Team</a></li>
+					<li><a href="news.html" title="News">News & Community</a></li>
+				</ul>
+			</nav>
+			<div id="Footer">						
+				<div id="divFooterTitle">
+					<p><a href="terms_conditions.html" title="Terms">Terms & Conditions</a></p>
+					<p><a href="privacy_policy.html" title="Privacy">Privacy Policy</a></p>
+					<p><a href="imprint.html" title="Imprint">Imprint</a></p>
+					<p>Images by <a href="https://unsplash.com" title="credits" target="_blank">Unsplash</a> and <a href="https://stock.adobe.com" title="credits" target="_blank">Adobe Stock</a></p>
+				</div>				
+			</div>
+		</footer>
+
+		</div>
+
+		<!-- This JS file populates the user information and the order history based on the JSON data in users.js and order_history.js -->
+		<script src="js/userprofile.js" type="text/javascript" charset="utf-8"></script>
+
+		<!-- This is the JS file for the login pop-up on the top right -->
+		<script type="text/javascript"  src="js/home.js"></script>
+
+		<!-- This is the JS file for the shopping bag pop-up on the top right -->
+		<script type="text/javascript"  src="js/shopping-bag-menu.js"></script>
+
+	</div>
+</body>
+</html>		

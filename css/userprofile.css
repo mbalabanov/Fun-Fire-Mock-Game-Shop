@@ -1,0 +1,39 @@
+main {
+  padding: 30px; }
+
+.user {
+  padding-bottom: 30px; }
+
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1em;
+  padding: 20px;
+  border: 1px solid gray; }
+
+#userImage {
+  width: 300px; }
+
+#userImage img {
+  width: 100%; }
+
+.wrapper div {
+  width: 55%; }
+
+.userheader {
+  color: white;
+  background-color: #652D4A;
+  padding: 5px 10px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px; }
+
+.wrapper a {
+  display: block; }
+
+#ord {
+  padding-top: 20px; }
+
+#ord div {
+  width: 70%; }
+
+/*# sourceMappingURL=userprofile.css.map */

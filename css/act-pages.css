@@ -1,0 +1,28 @@
+pre {
+  white-space: pre-line;
+  font-size: calc(100vw / 80);
+  resize: both;
+  text-align: left; }
+
+h2 {
+  text-align: left; }
+
+h1 {
+  text-align: left; }
+
+#TermsAndConditionContainer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 80%; }
+
+#imprintContainer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 80%; }
+
+#DataProtectionContainer {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 80%; }
+
+/*# sourceMappingURL=act-pages.css.map */

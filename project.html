@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<!-- ────────────────────────────────────────────────────────────────────┐
+	│     _____                                _______                       │
+	│    |  __ \                              |__   __|                      │
+	│    | |  | |_ __ __ _  __ _  ___  _ __      | | ___  __ _ _ __ ___      │
+	│    | |  | | '__/ _` |/ _` |/ _ \| '_ \     | |/ _ \/ _` | '_ ` _ \     │
+	│    | |__| | | | (_| | (_| | (_) | | | |    | |  __/ (_| | | | | | |    │
+	│    |_____/|_|  \__,_|\__, |\___/|_| |_|    |_|\___|\__,_|_| |_| |_|    │
+	│                       __/ |                                            │
+	│                      |___/                                             │
+	└───────────────────────────────────────────────────────────────────── -->
+	
+	<!-- Important Note:
+		This page requires a URL parameter ?productID=1 (or any number up to 9).
+		Based on the URL parameter the JS will know which product to pull from the JSON data and show on the page. -->
+<head>
+	<meta charset="UTF-8">
+	<title>Fun Fire | Project</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/home.css">
+	<link rel="stylesheet" type="text/css" href="css/responsive.css">
+	<meta name="Viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Happy+Monkey|News+Cycle&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
+	<link rel='icon' href='img/favicon.ico' type='image/x-icon'/>	
+
+	<!-- This file contains the JSON data with the orders that are displayed when a users clicks on the shopping bag on the top right -->
+	<script src="json/orders.js"></script>
+
+</head>
+<body id="body">
+
+	<!-- The megaContainerOne is a bit like the carpet in "The Big Lebowski", it pulls the whole room together, and the Dude loves it. -->
+	<div id="megaContainerOne">
+		<header>
+			<div id="Header">
+				<div id="divLogoLeft">
+					<a href="index.html"><img class="LogoLeft" src="img/logotext.png" alt="Code Factory Vienna"></a>
+				</div>
+
+				<!-- The icons in the menu initiate the JS functions in home.js.
+					goToMyAccount: If the user is not logged in they are forwarded to the login page.
+					showQuestionPopup: Asks the user if they want to sign in or sign up.
+					shopping: Displays the contents of the shopping cart and provides links to the checkout page -->
+				<div id="divLogoRight">
+					<img class="LogoRight" onclick="goToMyAcount()" src="img/myaccount.png" alt="myAcount">
+					<img class="LogoRight" onclick="showQuestionPopup()" src="img/signin.png" alt="login">
+					<img class="LogoRight" onclick="shopping()" src="img/basket.png" alt="basket">
+				</div>
+			</div>
+			<nav class="Menu">
+				<ul class="main">
+					<li><a href="index.html" title="Home">Home</a></li>
+					<li><a href="project.html" title="Project">Project</a></li>
+					<li><a href="team_members.html" title="Team">Team</a></li>
+					<li><a href="news.html" title="News">News & Community</a></li>
+				</ul>
+				<!-- This span is used to display the user's name once they have signed in, it works on the index page. On all other pages it is a placeholder.-->
+				<span id="usernotification" UserID=""></span>
+			</nav>
+		</header>
+
+		<!-- This is the tiny overlay menu that pops up on the top right corner when a user clicks onf the shopping bag.
+			It is populated dynamically from the JSON data in order.js-->
+		<div id="shoppingOverlay"></div>
+
+		<!-- This is the tiny menu that pops up on the top right when a user clicks on the login icon.
+			They are presented with the question whether they want to sign up or sign in, and then forwarded accordingly. -->
+		<div id="questionForm"></div>
+
+		<div id="container">
+			<div class="projectDescription">
+				<h1>About this Project</h1>
+				<p align="center">
+					<iframe width="500" height="281" src="https://www.youtube.com/embed/AyIzBYe9DCk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+				</p>
+				<p align="center">Video Introduction to Fun Fire<sup><a href="#footnote1">1</a></sup></p>
+
+				<p>This is an example project as part of the courses <a href="https://codefactory.wien/en/full-stack-web-developer-en/">Full Stack Web Developer</a> and <a href="https://codefactory.wien/en/frontend-developer-en/">Frontend Developer</a> at the <a href="https://codefactory.wien/en/home-en/">Code Factory</a>. The <strong>Fun Fire</strong> games shop was created in four cold days in February 2020 by <strong>Mireille Bebon</strong>, <strong>Yana Nikolaienko</strong>, <strong>Sepide Nickmanesh</strong> and <strong>Marin Balabanov</strong>. We proudly call ourselves the <strong>Dragon Team</strong>. Find out more about the team members on the <a href="team_members.html">team page</a>.</p>
+				<p align="center"><a href="pdf/fun-fire-presentation.pdf" target="_blank"><img src="img/download-pdf-presentation.png" alt="Download PDF presentation"><br>
+				Download Presentation as a PDF</a></p>
+				<p>The repository is stored on Github at <a href="https://github.com/CodeFactoryWien/LMSCF-CoreTech-6" target="_blank">https://github.com/CodeFactoryWien/LMSCF-CoreTech-6</a>. Please contact the Code Factory using their <a href="https://codefactory.wien/en/contact-en/">contact form</a> to request access.</p>
+				<p><img src="img/dragon-team.jpg" alt="Dragon Team"></p>
+				<p align="center">The Dragon Team (left to right): Marin Balabanov, Yana Nikolaienko, Mireille Bebon and Sepide Nickmanesh.</p>
+				<hr>
+				<p><sup id="footnote1">1</sup> This video was titled and edited using <a href="https://luma-touch.com/lumafusion-for-ios-2/" target="_blank">LumaFusion</a> on an <a href="https://www.apple.com/ipad-pro/" target="_blank">iPad Pro</a>. Stock footage was supplied by <a href="https://www.videoblocks.com" target="_blank">VideoBlocks</a>. Parts of this video were created using <a href="https://biteable.com" target="_blank">Biteable</a> and <a href="https://viddyoze.com" target="_blank">Viddyoze</a>. Music was provided by <a href="https://www.videoblocks.com" target="_blank">AudioBlocks</a>.</p>
+			</div>
+		</div>
+
+		<footer>
+			<nav class="Menu">
+				<ul class="main">
+					<li><a href="index.html" title="Home">Home</a></li>
+					<li><a href="project.html" title="Project">Project</a></li>
+					<li><a href="team_members.html" title="Team">Team</a></li>
+					<li><a href="news.html" title="News">News & Community</a></li>
+				</ul>
+			</nav>
+			<div id="Footer">						
+				<div id="divFooterTitle">
+					<p><a href="terms_conditions.html" title="Terms">Terms & Conditions</a></p>
+					<p><a href="privacy_policy.html" title="Privacy">Privacy Policy</a></p>
+					<p><a href="imprint.html" title="Imprint">Imprint</a></p>
+					<p>Images by <a href="https://unsplash.com" title="credits" target="_blank">Unsplash</a> and <a href="https://stock.adobe.com" title="credits" target="_blank">Adobe Stock</a></p>
+				</div>				
+			</div>
+		</footer>
+
+	</div>
+
+	<!-- This is the JS file for the login pop-up on the top right -->
+	<script type="text/javascript"  src="js/home.js"></script>
+
+	<!-- This is the JS file for the shopping bag pop-up on the top right -->
+	<script type="text/javascript"  src="js/shopping-bag-menu.js"></script>
+</body>
+</html>

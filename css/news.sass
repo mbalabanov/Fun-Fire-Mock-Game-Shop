@@ -1,0 +1,186 @@
+@import url("https://fonts.googleapis.com/css?family=Holtwood+One+SC|Source+Code+Pro|Abel")
+
+body
+	font-family: "Abel", Courier, monospace
+	text-transform: uppercase
+	color: #fa4b23
+	background: #111
+
+.wrapper
+	display: flex
+	justify-content: center
+	align-items: center
+	padding: 2rem
+	text-align: center
+
+.container
+	text-align: center
+
+h1, h2, h3
+	margin: 0
+	padding: 0
+	font-family: "Holtwood One SC", Arial, sans-serif
+	font-size: 5em
+	line-height: 1em
+
+.community 
+	white-space: nowrap
+
+h3 
+	font-family: "Source Code Pro", Courier, monospace
+	font-size: 2em
+
+.line 
+	display: block
+	overflow-y: hidden
+	height: 90px
+	color: #fff
+
+.line.bottom 
+	line-height: 1.7em
+	border-bottom: 3px solid white
+
+.line.top 
+	line-height: .5em
+	border-top: 3px solid white
+
+h3 
+	color: #00A4CC
+
+p 
+	margin: 0
+	padding: 0
+
+.newsContainer 
+	display: flex
+	flex-direction: column
+	width: 807px
+	height: 400px
+	margin: 0 auto
+	flex-wrap: wrap
+
+.newsContainer img 
+	width: 100%
+
+.newsContainer .wide 
+	height: 400px
+	width: 607px
+
+.newsContainer .square 
+	height: 200px
+	width: 200px
+
+.slogan 
+	font-size: 3em
+	font-family: "Abel", Arial, sans-serif
+
+.slogan .star 
+	padding: 0 .5em
+	font-size: .75em
+
+.articleList 
+	width: 807px
+	display: flex
+	flex-wrap: wrap
+	margin: 0 auto
+
+.articlePic 
+	width: 180px
+	margin-right: 20px
+	margin-top: 20px
+
+.articlePic img 
+	width: 100%
+
+.articleTeaser 
+	width: 580px
+	text-align: left
+	margin-top: 20px
+
+@keyframes slidy
+	0%
+		left: 0%
+	20%
+		left: 0%
+	25%
+		left: -100%
+	45%
+		left: -100%
+	50%
+		left: -200%
+	70%
+		left: -200%
+	75%
+		left: -300%
+	95%
+		left: -300%
+	100%
+		left: -400%
+ 
+div#slider
+	overflow: hidden
+	width: 80%
+	max-width: 1000px
+	height: 300px
+	margin: 0 auto
+
+div#slider figure img
+	width: 10%
+	height: auto
+	float: left
+
+div#slider figure
+	position: relative
+	width: 500%
+	margin: 0
+	left: 0
+	text-align: left
+	font-size: 0
+	animation: 25s slidy infinite
+
+.socialmedia 
+	display: flex
+	flex-flow: row nowrap
+	justify-content: center
+	padding-top: 3em
+
+.socialmedia .icon 
+	padding: 0 1em
+
+.icon 
+	color: #666
+	text-decoration: none
+
+/* Media Query for Smartphones at 640px */
+@media only screen and (max-width: 640px)
+
+	.articleList
+		width: 90%
+		margin-top: 2rem
+
+	.articlePic
+		width: 20%
+
+	.articleTeaser
+		width: 70%
+		margin-left: 1rem
+	.square
+		display: none
+
+	h1
+		font-size: 3.5em
+
+	h2, h3, .slogan
+		font-size: 2em
+
+	.newsContainer
+		width: 100%
+
+	.newsContainer .wide
+		width: 100%
+
+	#slider
+		display: none
+
+	.line.bottom
+		line-height: 5em

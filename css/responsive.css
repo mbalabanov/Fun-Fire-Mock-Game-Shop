@@ -1,0 +1,32 @@
+/* Media Query for Smartphones at 640px */
+@media only screen and (max-width: 640px) {
+  #megaContainerOne {
+    width: 100%; }
+
+  form {
+    width: 90%;
+    margin: 0; }
+
+  .styledProductOverlay {
+    width: 90%;
+    left: 0;
+    top: 0; }
+
+  .cartContent {
+    left: 14rem; }
+
+  .questionContent {
+    left: 14rem; }
+
+  .memberDetailCol1 {
+    width: 55%; }
+
+  .memberDetailCol2 {
+    width: 100%;
+    margin-left: 4rem; }
+
+  .productcard {
+    width: 20rem;
+    height: 20rem; } }
+
+/*# sourceMappingURL=responsive.css.map */

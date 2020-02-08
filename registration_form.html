@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+	<!-- ────────────────────────────────────────────────────────────────────┐
+	│     _____                                _______                       │
+	│    |  __ \                              |__   __|                      │
+	│    | |  | |_ __ __ _  __ _  ___  _ __      | | ___  __ _ _ __ ___      │
+	│    | |  | | '__/ _` |/ _` |/ _ \| '_ \     | |/ _ \/ _` | '_ ` _ \     │
+	│    | |__| | | | (_| | (_| | (_) | | | |    | |  __/ (_| | | | | | |    │
+	│    |_____/|_|  \__,_|\__, |\___/|_| |_|    |_|\___|\__,_|_| |_| |_|    │
+	│                       __/ |                                            │
+	│                      |___/                                             │
+	└───────────────────────────────────────────────────────────────────── -->
+<head>
+	<meta charset="UTF-8">
+	<title>Fun Fire | Registration</title>
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<link rel="stylesheet" type="text/css" href="css/home.css">
+	<link rel="stylesheet" type="text/css" href="css/registration_form.css">
+	<link rel="stylesheet" type="text/css" href="css/responsive.css">
+	<link rel='icon' href='img/favicon.ico' type='image/x-icon'/>
+	<meta name="Viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Happy+Monkey|News+Cycle&display=swap" rel="stylesheet">	
+
+	<!-- This file contains the JSON data with the orders that are displayed when a users clicks on the shopping bag on the top right -->
+	<script src="json/orders.js"></script>
+
+</head>
+<body>
+
+	<div id="megaContainerOne">
+		<header>
+			<div id="Header">
+				<div id="divLogoLeft">
+					<a href="index.html"><img class="LogoLeft" src="img/logotext.png" alt="Code Factory Vienna"></a>
+				</div>
+
+				<!-- The icons in the menu initiate the JS functions in home.js.
+					goToMyAccount: If the user is not logged in they are forwarded to the login page.
+					showQuestionPopup: Asks the user if they want to sign in or sign up.
+					shopping: Displays the contents of the shopping cart and provides links to the checkout page -->
+				<div id="divLogoRight">
+					<img class="LogoRight" onclick="goToMyAcount()" src="img/myaccount.png" alt="myAcount">
+					<img class="LogoRight" onclick="showQuestionPopup()" src="img/signin.png" alt="login">
+					<img class="LogoRight" onclick="shopping()" src="img/basket.png" alt="basket">
+				</div>
+			</div>
+			<nav class="Menu">
+				<ul class="main">
+					<li><a href="index.html" title="Home">Home</a></li>
+					<li><a href="project.html" title="Project">Project</a></li>
+					<li><a href="team_members.html" title="Team">Team</a></li>
+					<li><a href="news.html" title="News">News & Community</a></li>
+				</ul>
+				<!-- This span is used to display the user's name once they have signed in, it works on the index page. On all other pages it is a placeholder.-->
+				<span id="usernotification" UserID=""></span>
+			</nav>
+		</header>
+
+		<!-- This is the tiny overlay menu that pops up on the top right corner when a user clicks onf the shopping bag.
+			It is populated dynamically from the JSON data in order.js-->
+		<div id="shoppingOverlay"></div>
+
+		<!-- This is the tiny menu that pops up on the top right when a user clicks on the login icon.
+			They are presented with the question whether they want to sign up or sign in, and then forwarded accordingly. -->
+		<div id="questionForm"></div>
+
+		<img src="img/registration.jpg" alt="Please register here" class="registrationImg">
+
+		<main>
+			<div class="container">
+
+				
+					<h2>Please fill the fields below to sign up</h2>
+
+					<form>
+						<div>First Name:<br><input class="squareInput" type="text" name="name" id="name" placeholder="Please enter your first name"></div>
+						<div>Surname:<br><input class="squareInput" type="text" name="surname" id="surname" placeholder="Surname"></div>
+						<div>Password:<br><input class="squareInput" type="text" name="password" id="password" placeholder="Change your password"></div>
+						<div>Phone:<br><input class="squareInput" type="number" name="phone" id="phone" placeholder="Please enter your phone number"></div>
+						<div>Email Address:<br><input class="squareInput" type="email" name="email" id="email" placeholder="name@index.com"></div>
+						<div>Gender: <br>
+							<div id="Gender" class="radioWrapper">
+								<span><input  type="radio" id="Male" name="Male">Male</span>
+								<span><input  type="radio" id="Female" name="Female">Female</span>
+								<span><input  type="radio" id="Undefined" name="Undefined" checked>Undefined</span>
+							</div>
+						</div>
+						<button id="submitButton" onclick="saveclick()" type="submit">Send</button>
+						<div id="output"></div>
+					</form>
+
+					
+			</div>
+		</main>
+
+		<footer>
+			<nav class="Menu">
+				<ul class="main">
+					<li><a href="index.html" title="Home">Home</a></li>
+					<li><a href="project.html" title="Project">Project</a></li>
+					<li><a href="team_members.html" title="Team">Team</a></li>
+					<li><a href="news.html" title="News">News & Community</a></li>
+				</ul>
+			</nav>
+			<div id="Footer">						
+				<div id="divFooterTitle">
+					<p><a href="terms_conditions.html" title="Terms">Terms & Conditions</a></p>
+					<p><a href="privacy_policy.html" title="Privacy">Privacy Policy</a></p>
+					<p><a href="imprint.html" title="Imprint">Imprint</a></p>
+					<p>Images by <a href="https://unsplash.com" title="credits" target="_blank">Unsplash</a> and <a href="https://stock.adobe.com" title="credits" target="_blank">Adobe Stock</a></p>
+				</div>				
+			</div>
+		</footer>
+
+	</div>
+
+	<!-- This is the JS file with the functions for the registration page -->
+	<script type="text/javascript"  src="js/registration.js"></script>
+
+	<!-- This is the JS file for the login pop-up on the top right -->
+	<script type="text/javascript"  src="js/home.js"></script>
+
+	<!-- This is the JS file for the shopping bag pop-up on the top right -->
+	<script type="text/javascript"  src="js/shopping-bag-menu.js"></script>
+
+</body>
+</html>
